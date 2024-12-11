@@ -31,7 +31,6 @@ const pagePagination = async (key) => {
 onMounted(async () => {
   const path = SERVICE_API.CHARACTER
   const result = await restHttp(path)
-  console.log(result.results, 'result.results')
   list.value.results = await arrayChunk(result.results, 4)
   listPaginationSelect.value = list.value.results[0]
 })
@@ -50,7 +49,15 @@ onMounted(async () => {
     <template v-slot:gender>{{ value.gender }}</template>
     <template v-slot:species>{{ value.species }}</template>
     <template v-slot:button>
-      <Button @click="openDetail(value.url)" :textButton="$t('button.detail')"></Button>
+      <Button @click="openDetail(value.url)" :statusLoad="statePopup">
+        <template v-slot:textBtn>{{ $t('button.detail') }}</template>
+        <template v-slot:iconBtn>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </template>
+      </Button>
     </template>
   </ItemList>
   <PaginationNav :idPageList="NavBtnSelect" @changeListPage="pagePagination" :countPage="list.results">
