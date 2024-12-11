@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 import { SERVICE_API } from '@/utils/constans.js'
-import { arrayChunk, restHttp } from '@/utils/general.js'
+import { arrayChunk, restHttp, resHttpStorage } from '@/utils/general.js'
 import BoxPanel from '@/components/BoxPanel.vue'
 
 const list = ref({})
@@ -30,7 +30,7 @@ const pagePagination = async (key) => {
 
 onMounted(async () => {
   const path = SERVICE_API.CHARACTER
-  const result = await restHttp(path)
+  const result = await resHttpStorage(path,'listCards')
   list.value.results = await arrayChunk(result.results, 4)
   listPaginationSelect.value = list.value.results[0]
 })
