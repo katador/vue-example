@@ -9,7 +9,8 @@ const general = {
 
 const viewHome = {
     title:{
-        view:'Lista de Tarjetas'
+        view:'Lista de Tarjetas',
+        game:'Juego de memoria'
     }
 }
 

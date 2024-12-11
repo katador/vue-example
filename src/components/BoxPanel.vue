@@ -30,7 +30,7 @@ onMounted(async () => {
 
 </script>
 <template>
-    <div v-if="detailCharacter" id="popup" class="z-30 bg-sky-600 w-screen h-screen fixed pt-10">
+    <div v-if="detailCharacter" id="popup" class="z-30 bg-sky-600 w-screen h-screen fixed pt-10 top-0 left-0">
         <slot name="closed"></slot>
         <div class=" flex justify-center pb-3">
             <ItemList>
@@ -51,7 +51,7 @@ onMounted(async () => {
                     </template>
                 </ItemList>
             </div>
-            <PaginationNav>
+            <PaginationNav :idPageList="NavBtnSelect" @changeListPage="pagePagination" :countPage="listCharacterPagination">
                 <template v-slot:PaginationBtn>
                     <PaginationBtn :class="(key == NavBtnSelect) ? '!bg-sky-400' : ''"
                          v-for="(value, key)  in listCharacterPagination" @click="pagePagination(key)" :key="value.name">
