@@ -31,7 +31,7 @@ const pagePagination = async (key) => {
 onMounted(async () => {
   const path = SERVICE_API.CHARACTER
   const result = await resHttpStorage(path,'listCards')
-  list.value.results = await arrayChunk(result.results, 4)
+  list.value.results = await arrayChunk(result.results, 10)
   listPaginationSelect.value = list.value.results[0]
 })
 </script>
@@ -41,16 +41,21 @@ onMounted(async () => {
       <Close @click="actionPopup"></Close>
     </template>
   </BoxPanel>
-  <ItemList v-for="value in listPaginationSelect" :key="value.name">
-    <template v-slot:img>
+  <div class="flex flex-wrap">
+
+    <CardData  v-for="value in listPaginationSelect" :key="value.name">
+      <template v-slot:img>
       <img class="rounded-md w-20 h-20" :src="value.image">
     </template>
     <template v-slot:name>{{ value.name }}</template>
     <template v-slot:gender>{{ value.gender }}</template>
     <template v-slot:species>{{ value.species }}</template>
-    <template v-slot:button>
+
+      <template v-slot:button>
       <Button @click="openDetail(value.url)" :statusLoad="statePopup">
-        <template v-slot:textBtn>{{ $t('button.detail') }}</template>
+        <template v-slot:textBtn>
+          <span class="underline underline-offset-4">{{ $t('button.detail') }}</span>
+        </template>
         <template v-slot:iconBtn>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="size-4">
@@ -59,7 +64,8 @@ onMounted(async () => {
         </template>
       </Button>
     </template>
-  </ItemList>
+    </CardData>
+</div>
   <PaginationNav :idPageList="NavBtnSelect" @changeListPage="pagePagination" :countPage="list.results">
     <template v-slot:PaginationBtn>
       <PaginationBtn :class="(key == NavBtnSelect) ? '!bg-sky-400' : ''" v-for="(value, key)  in list.results"

@@ -26,7 +26,7 @@ onMounted(async () => {
 <template>
 
   <div class="flex justify-center pt-10">
-    <div class="bg-sky-600 rounded-[15px] w-80 min-h-96 p-3 relative">
+    <div class="bg-app-fondo rounded-[15px] w-9/12 min-h-96 p-3 relative">
 
       <div @click="changeLanguage"
         class="bg-cyan-300 hover:bg-cyan-200  rounded-md p-2 text-[10px] absolute right-4 cursor-pointer">
