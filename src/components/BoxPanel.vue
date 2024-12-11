@@ -1,7 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-
-import { SERVICE_API } from '@/utils/constans.js'
 import { arrayChunk, restHttp } from '@/utils/general.js'
 
 const props = defineProps(['detailCharacter'])
@@ -46,7 +44,7 @@ onMounted(async () => {
         </div>
         <div class="">
             <div class="flex flex-wrap">
-                <ItemList v-for="(value, key) in listPaginationSelect">
+                <ItemList v-for="value in listPaginationSelect" :key="value.name">
                     <template v-slot:img>
                         <img class="rounded-md w-20 h-20" :src="value.image">
                         <div><span class="!text-[10px] text-yellow-400">{{ value.name }}</span></div>
@@ -56,7 +54,7 @@ onMounted(async () => {
             <PaginationNav>
                 <template v-slot:PaginationBtn>
                     <PaginationBtn :class="(key == NavBtnSelect) ? '!bg-sky-400' : ''"
-                        v-for="(value, key)  in listCharacterPagination" @click="pagePagination(key)">
+                         v-for="(value, key)  in listCharacterPagination" @click="pagePagination(key)" :key="value.name">
                         {{ key + 1 }}
                     </PaginationBtn>
                 </template>

@@ -33,6 +33,7 @@ const changeLanguage = async () => {
 }
 
 const pagePagination = async (key) => {
+  console.log(key,'key---')
     NavBtnSelect.value = key
     listPaginationSelect.value = list.value.results[key]
 }
@@ -65,8 +66,8 @@ onMounted(async () => {
             <div class="pt-4 pb-4 text-white">
                 {{ $t('title.view') }}
             </div>
-        
-            <ItemList  v-for="(value, key) in listPaginationSelect">
+
+            <ItemList  v-for="value in listPaginationSelect" :key="value.name">
                 <template v-slot:img>
                     <img class="rounded-md w-20 h-20" :src="value.image">
                 </template>
@@ -78,9 +79,9 @@ onMounted(async () => {
                 </template>
             </ItemList>
 
-            <PaginationNav>
+            <PaginationNav :idPageList="NavBtnSelect" @changeListPage="pagePagination" :countPage="list.results">
                 <template v-slot:PaginationBtn>
-                    <PaginationBtn :class="(key == NavBtnSelect)? '!bg-sky-400':''" v-for="(value, key)  in list.results" @click="pagePagination(key)">
+                    <PaginationBtn  :class="(key == NavBtnSelect)? '!bg-sky-400':''" v-for="(value, key)  in list.results" @click="pagePagination(key)" :key="value.name">
                         {{ key + 1 }}
                     </PaginationBtn>
                 </template>
