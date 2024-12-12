@@ -9,7 +9,7 @@ import LayoutGame from '@/modules/GameMemory/LayoutGame.vue'
 import LayoutMusic from '@/modules/PlayMusic/LayoutMusic.vue'
 
 const stateLanguage = ref(false)
-const pageView = ref(0)
+const pageView = ref(2)
 
 const changeLanguage = async () => {
   stateLanguage.value = !stateLanguage.value
