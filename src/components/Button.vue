@@ -1,7 +1,5 @@
 <script setup>
-import { ref } from 'vue'
 const props = defineProps(['statusLoad'])
-
 </script>
 <template>
   <button class=" p-1 hover:text-sky-500 rounded-md text-[11px]">

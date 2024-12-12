@@ -6,9 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'inset-green': 'inset 0 -5px 0 #9dc082',
-      },
       colors: {
         'app-fondo': '#f3f6f9',
         'app-card-verde':'#9dc082',
