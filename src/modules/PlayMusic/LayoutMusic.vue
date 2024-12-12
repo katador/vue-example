@@ -1,11 +1,19 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+
+const player = ref(false)
+
+const actionOpen = async()=>{
+    player.value = true
+}
+
 </script>
 <template>
-  <div class="bg-[url('./img/fondo_app.jpg')] max-w-xs bg-cover bg-no-repeat bg-center rounded-xl">
+  <div v-if="player == false" class="bg-[url('./img/fondo_app.jpg')] max-w-xs bg-cover bg-no-repeat bg-center rounded-xl">
     <div class="  multi-bg-example p-5 rounded-xl grid content-end  min-h-500">
       <div class="text-white text-4xl pr-20">Enjoy your favorite music</div>
       <div class="flex pt-6 pb-4">
-        <button class=" grow text-xs font-semibold rounded-full bg-music-btn-green text-music-text-btn-green py-3">Get
+        <button @click="actionOpen" class=" grow text-xs font-semibold rounded-full bg-music-btn-green text-music-text-btn-green py-3">Get
           Started</button>
       </div>
       <div class="flex mb-6">
@@ -19,7 +27,7 @@
     </div>
   </div>
 
-  <div class="bg-music-background max-w-xs p-6 rounded-xl grid content-end  min-h-500 mt-5">
+  <div v-if="player == true"  class="bg-music-background max-w-xs p-6 rounded-xl grid content-end  min-h-500 mt-5">
     <div class="flex justify-end">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
         class="size-6">
