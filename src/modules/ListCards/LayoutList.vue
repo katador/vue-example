@@ -65,7 +65,7 @@ onMounted(async () => {
       </Button>
     </template>
     </CardData>
-</div>
+  </div>
   <PaginationNav :idPageList="NavBtnSelect" @changeListPage="pagePagination" :countPage="list.results">
     <template v-slot:PaginationBtn>
       <PaginationBtn :class="(key == NavBtnSelect) ? '!bg-sky-400' : ''" v-for="(value, key)  in list.results"
