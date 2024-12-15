@@ -6,8 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'inset-green': 'inset 0 -5px 0 #9dc082',
+      fontSize:{
+        'xs1':['10px']
+      },
+      minHeight:{
+        '500':'500px'
       },
       colors: {
         'app-fondo': '#f3f6f9',
@@ -19,6 +22,14 @@ export default {
         'app-text-title':'#1d212d',
         'app-text-subtitle':'#6c717a',
         'app-text-blue':'#1777bd',
+
+        'music-background':'#121212',
+        'music-btn-green':'#27d999',
+        'music-border-btn-green':'#22aa79',
+        'music-text-btn-green':'#1e392f',
+        'music-text-border-green':'#24c78d',
+        'music-text-silver':'#888888',
+        'music-text-subtitle':'#d3d3d3',
       },
     },
   },

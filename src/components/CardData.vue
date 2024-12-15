@@ -1,7 +1,7 @@
 <script setup>
 </script>
 <template>
-    <div class="bg-white rounded-lg shadow-lg p-6 m-5 max-w-80 shadow-inset-green" >
+    <div class="bg-white rounded-lg shadow-lg p-6 m-5 max-w-80 borderButtonCard" >
           <div class="">
             <div class="flex justify-between items-center">
               <div class="bg-app-btn-success text-white rounded-full py-1 px-4">
@@ -29,7 +29,7 @@
 
           </div>
           <div>
-            <div class="bg-app-box-plomo border-2 border-app-box-border rounded-lg p-4 mt-5 mb-5">
+            <div v-if="$slots.species" class="bg-app-box-plomo border-2 border-app-box-border rounded-lg p-4 mt-5 mb-5">
               <div class="p-1"># <span class="italic">#</span><slot name="species"></slot></div>
               <div class="p-1 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -59,7 +59,7 @@
               <div class="p-1"><span
                   class="bg-white border-2 py-1 px-2 rounded-full text-app-text-blue">(64)630613343</span></div>
             </div>
-            <div class="flex justify-between items-center">
+            <div v-if="$slots.button" class="flex justify-between items-center">
               <div class="text-app-text-title"><span class="text-app-text-subtitle">Joined at</span> 21 Sep, 2018</div>
               <div class="text-app-text-title font-semibold">
                 <slot name="button"></slot>
