@@ -15,6 +15,7 @@ import IconHeart from "./components/icons/IconHeart.vue"
 import IconMore from "./components/icons/IconMore.vue"
 import IconEllipsisVertical from "./components/icons/IconEllipsisVertical.vue"
 
+
 export default {
     install(app){
         app.component('Close',Close)

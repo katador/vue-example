@@ -45,7 +45,7 @@ onMounted(async () => {
 
     <CardData  v-for="value in listPaginationSelect" :key="value.name" class="m-5 p-6">
       <template v-slot:img>
-      <img class="rounded-full w-20 h-20" :src="value.image">
+        <img class="rounded-full w-40 h-40" :src="value.image">
     </template>
     <template v-slot:name>{{ value.name }}</template>
     <template v-slot:gender>{{ value.gender }}</template>

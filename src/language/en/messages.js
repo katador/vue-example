@@ -11,7 +11,7 @@ const viewHome = {
     title:{
         view:'List Cards',
         game:'Memory Game',
-        music:'Play Music',
+        music:'Play Music'
     }
 }
 
